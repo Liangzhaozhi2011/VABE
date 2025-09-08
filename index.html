@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VABE Mod</title>
+    <title>模组宣传主页</title>
     <style>
         * {
             margin: 0;
@@ -40,6 +40,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            cursor: pointer;
         }
         
         .logo-icon {
@@ -88,23 +89,19 @@
             cursor: pointer;
         }
         
-        nav a:hover {
+        nav a:hover, nav a.active {
             color: #409CFF;
         }
         
-        nav a::after {
+        nav a.active::after, nav a:hover::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 0;
+            width: 100%;
             height: 2px;
             background: linear-gradient(90deg, #409CFF, #7ABAFF);
             transition: width 0.3s ease;
-        }
-        
-        nav a:hover::after {
-            width: 100%;
         }
         
         .hero {
@@ -171,6 +168,7 @@
             border: 1px solid rgba(64, 156, 255, 0.2);
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
         
         .feature-card::before {
@@ -335,6 +333,66 @@
             color: #409CFF;
         }
         
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .tool-card {
+            background: rgba(30, 40, 60, 0.6);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(64, 156, 255, 0.2);
+            cursor: pointer;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(64, 156, 255, 0.5);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tool-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #409CFF;
+        }
+        
+        .tool-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        
+        .tool-card p {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+        
+        .home-content {
+            padding: 20px 0;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            margin: 40px 0 20px;
+            background: linear-gradient(135deg, #409CFF 0%, #B3D9FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -356,6 +414,10 @@
                 flex-direction: column;
                 align-items: center;
             }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -365,79 +427,146 @@
     
     <div class="container">
         <header>
-            <div class="logo">
+            <div class="logo" id="home-btn">
                 <div class="logo-icon"></div>
-                <div class="logo-text">VABE</div>
+                <div class="logo-text">模组宣传主页</div>
             </div>
             <nav>
                 <ul>
-                    <li><a href="#" id="home-link">首页</a></li>
-                    <!-- 已删除"关于我们"导航项 -->
-                    <li><a href="#contact" id="contact-link">联系我们</a></li>
+                    <li><a href="#" class="nav-link active" data-page="home">首页</a></li>
+                    <li><a href="#" class="nav-link" data-page="vabe">VABE Mod</a></li>
+                    <li><a href="#contact" class="nav-link" data-page="contact">联系我们</a></li>
                 </ul>
             </nav>
         </header>
         
-        <section class="hero">
-            <h1>探索Minecraft作弊的无限可能</h1>
-            <p>VABE 拥有先进的Hwid检测,完全由一个程序运行，提供前所未有的游戏体验</p>
-            <div class="cta-buttons">
+        <!-- 首页内容 -->
+        <div id="home-page" class="page active">
+            <section class="hero">
+                <h1>提升您的游戏体验</h1>
+                <p>提供各种高质量的游戏作弊工具和模组，帮助您在游戏中获得最佳表现和乐趣</p>
+                <div class="cta-buttons">
+                    <a href="https://qm.qq.com/q/PDz2dSb644" class="cta-button">探索工具和模组</a>
+                    <a href="https://qm.qq.com/q/PDz2dSb644" class="cta-button secondary">加入社区</a>
+                </div>
+            </section>
+            
+            <section class="home-content">
+                <h2 class="section-title">热门模组和工具</h2>
+                <div class="tools-grid">
+                    <div class="tool-card" data-page="vabe">
+                        <div class="tool-icon">🎮</div>
+                        <h3>VABE Mod</h3>
+                        <p>功能强大的Minecraft作弊模组，提供智能热键和海量功能</p>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">🎮</div>
+                        <h3>MABY Mod</h3>
+                        <p>使用CE脚本打包的EXE制成,更新难度低不易跑路</p>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">🎮</div>
+                        <h3>敬请期待</h3>
+                        <p>   </p>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">🎮</div>
+                        <h3>敬请期待</h3>
+                        <p>   </p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="home-content">
+                <h2 class="section-title">为什么选择我们</h2>
+                <div class="features">
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>安全可靠</h3>
+                        <p>所有工具都经过严格测试，确保使用安全，不会对您的电脑造成风险</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🚀</div>
+                        <h3>持续更新</h3>
+                        <p>我们的工具会随游戏更新而持续维护，确保长期可用性</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">👥</div>
+                        <h3>社区支持</h3>
+                        <p>加入活跃的社区，获取帮助和分享游戏经验</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- VABE Mod 页面内容 -->
+        <div id="vabe-page" class="page">
+            <section class="hero">
+                <h1>探索Minecraft作弊的无限可能</h1>
+                <p>VABE 拥有先进的Hwid检测,完全由一个程序运行，提供前所未有的游戏体验</p>
+                <div class="cta-buttons">
                     <a href="https://qm.qq.com/q/lpjBlKBv0G" class="cta-button">点此购买</a>
                     <a href="https://awashop.shop?cid=9&mid=18" class="cta-button secondary">更多商品</a>
-            </div>
-        </section>
-        
-        <section class="features">
-            <div class="feature-card">
-                <div class="feature-icon">🤖</div>
-                <h3>智能热键</h3>
-                <p>可以检测你的HUD状态,再UI调参时不会触发热键，提供更流畅的游戏操作体验</p>
-            </div>
+                </div>
+            </section>
             
-            <div class="feature-card">
-                <div class="feature-icon">🚀</div>
-                <h3>海量功能</h3>
-                <p>强大的各种功能,崩服上帝等应有尽有，满足你在Minecraft中的所有需求</p>
-            </div>
+            <section class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>智能热键</h3>
+                    <p>可以检测你的HUD状态,再UI调参时不会触发热键，提供更流畅的游戏操作体验</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>海量功能</h3>
+                    <p>强大的各种功能,崩服上帝等应有尽有，满足你在Minecraft中的所有需求</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>简易美观</h3>
+                    <p>不错的Gui和配置系统,视觉不错的ArrayList</p>
+                </div>
+            </section>
             
-            <div class="feature-card">
-                <div class="feature-icon">🔒</div>
-                <h3>简易美观</h3>
-                <p>不错的Gui和配置系统,视觉不错的ArrayList</p>
-            </div>
-        </section>
+            <section class="screenshots">
+                <h2>功能展示</h2>
+                <div class="screenshot-grid">
+                    <div class="screenshot-item" style="background-image: url('https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/63e147fad07ec805/00eb956956fe1d3ce230554003533f16.png')">
+                        <span></span>
+                    </div>
+                    <div class="screenshot-item" style="background-image: url('https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/7dea69750466870e/image.png')">
+                        <span></span>
+                    </div>
+                    <div class="screenshot-item" style="background-image: url('https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/673e9b5b154e9f40/image.png')">
+                        <span></span>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="testimonials">
+                <h2>用户评价</h2>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"VABE是我使用过的最强大的Minecraft Mod，它的功能丰富且稳定，完全改变了我的游戏体验。"</p>
+                    <p class="testimonial-author">- Mr_Lick</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"智能热键功能太实用了，再也不用担心在调整UI时或打字时误触功能键，设计非常人性化。"</p>
+                    <p class="testimonial-author">- Jesko</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"这个ArrayList简直太好看了,可以自定义颜色还有动态效果!"</p>
+                    <p class="testimonial-author">- XunYi</p>
+                </div>
+            </section>
+        </div>
         
-        <section class="screenshots">
-            <h2>功能展示</h2>
-            <div class="screenshot-grid">
-                <div class="screenshot-item" style="background-image: url('https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/63e147fad07ec805/00eb956956fe1d3ce230554003533f16.png')">
-                    <span></span>
-                </div>
-                <div class="screenshot-item" style="background-image: url('https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/7dea69750466870e/image.png')">
-                    <span></span>
-                </div>
-                <div class="screenshot-item" style="background-image: url('https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/673e9b5b154e9f40/image.png')">
-                    <span></span>
-                </div>
-            </div>
-        </section>
-        
-        <section class="testimonials">
-            <h2>用户评价</h2>
-            <div class="testimonial-card">
-                <p class="testimonial-text">"VABE是我使用过的最强大的Minecraft Mod，它的功能丰富且稳定，完全改变了我的游戏体验。"</p>
-                <p class="testimonial-author">- Mr_Lick</p>
-            </div>
-            <div class="testimonial-card">
-                <p class="testimonial-text">"智能热键功能太实用了，再也不用担心在调整UI时或打字时误触功能键，设计非常人性化。"</p>
-                <p class="testimonial-author">- Jesko</p>
-            </div>
-            <div class="testimonial-card">
-                <p class="testimonial-text">"这个ArrayList简直太好看了,可以自定义颜色还有动态效果!"</p>
-                <p class="testimonial-author">- XunYi</p>
-            </div>
-        </section>
-
         <!-- 联系我们部分 -->
         <section id="contact" class="testimonials">
             <h2>联系我们</h2>
@@ -445,34 +574,97 @@
                 <p class="testimonial-text">如果您有任何问题或需要支持，请通过以下方式联系我们：</p>
                 <p class="testimonial-text">QQ代理：3951607390</p>
                 <p class="testimonial-text">QQ群：675651725</p>
-                <p class="testimonial-text"></p>
             </div>
         </section>
     </div>
     
     <footer class="footer">
         <div class="container">
-            <p>© 2025 VABE Team - 探索游戏的新维度</p>
+            <p>© 2025 游戏工具中心 - 探索游戏的新维度</p>
         </div>
     </footer>
 
     <script>
-        // 添加首页链接点击事件
-        document.getElementById('home-link').addEventListener('click', function(e) {
-            e.preventDefault();
-            // 平滑滚动到页面顶部
+        // 页面切换功能
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // 更新导航激活状态
+                document.querySelectorAll('.nav-link').forEach(item => {
+                    item.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // 显示对应页面
+                const pageId = this.getAttribute('data-page') + '-page';
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                if (pageId === 'contact-page') {
+                    // 特殊处理联系我们
+                    document.querySelectorAll('.page').forEach(page => {
+                        page.classList.remove('active');
+                    });
+                    document.getElementById('home-page').classList.add('active');
+                    
+                    // 滚动到联系我们部分
+                    setTimeout(() => {
+                        document.getElementById('contact').scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }, 100);
+                } else {
+                    document.getElementById(pageId).classList.add('active');
+                    
+                    // 滚动到顶部
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 首页logo点击事件
+        document.getElementById('home-btn').addEventListener('click', function() {
+            document.querySelectorAll('.nav-link').forEach(item => {
+                item.classList.remove('active');
+            });
+            document.querySelector('[data-page="home"]').classList.add('active');
+            
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById('home-page').classList.add('active');
+            
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
         });
-
-        // 添加联系我们链接点击事件
-        document.getElementById('contact-link').addEventListener('click', function(e) {
-            e.preventDefault();
-            // 平滑滚动到联系我们部分
-            document.getElementById('contact').scrollIntoView({
-                behavior: 'smooth'
+        
+        // 工具卡片点击事件
+        document.querySelectorAll('.tool-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const targetPage = this.getAttribute('data-page');
+                if (targetPage) {
+                    document.querySelectorAll('.nav-link').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    document.querySelector(`[data-page="${targetPage}"]`).classList.add('active');
+                    
+                    document.querySelectorAll('.page').forEach(page => {
+                        page.classList.remove('active');
+                    });
+                    document.getElementById(`${targetPage}-page`).classList.add('active');
+                    
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>
