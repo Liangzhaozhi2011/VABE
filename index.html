@@ -393,6 +393,127 @@
             -webkit-text-fill-color: transparent;
         }
         
+        /* 商店页面样式 */
+        .shop-hero {
+            text-align: center;
+            padding: 40px 0;
+            margin-bottom: 40px;
+        }
+        
+        .shop-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .benefit-card {
+            background: rgba(30, 40, 60, 0.6);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid rgba(64, 156, 255, 0.2);
+        }
+        
+        .benefit-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #409CFF;
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        
+        .benefit-card p {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .product-card {
+            background: rgba(30, 40, 60, 0.6);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(64, 156, 255, 0.2);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(64, 156, 255, 0.1) 0%, transparent 100%);
+            z-index: -1;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(64, 156, 255, 0.5);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .product-name {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        
+        .product-description {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .product-price {
+            font-size: 1.2rem;
+            color: #409CFF;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .buy-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #409CFF 0%, #007AFF 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .buy-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 122, 255, 0.3);
+        }
+        
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -418,6 +539,10 @@
             .tools-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -436,6 +561,7 @@
                     <li><a href="#" class="nav-link active" data-page="home">首页</a></li>
                     <li><a href="#" class="nav-link" data-page="vabe">VABE Mod</a></li>
                     <li><a href="#" class="nav-link" data-page="maby">MABY Mod</a></li>
+                    <li><a href="#" class="nav-link" data-page="shop">商店</a></li>
                     <li><a href="#contact" class="nav-link" data-page="contact">联系我们</a></li>
                 </ul>
             </nav>
@@ -627,6 +753,108 @@
                 <div class="testimonial-card">
                     <p class="testimonial-text">"功能不错"</p>
                     <p class="testimonial-author">- ShuMu</p>
+                </div>
+            </section>
+        </div>
+        
+        <!-- SHOP 页面内容 -->
+        <div id="shop-page" class="page">
+            <section class="shop-hero">
+                <h1>模组商店</h1>
+                <p>购买高质量的游戏模组，享受优质的服务和售后支持</p>
+            </section>
+            
+            <section>
+                <h2 class="section-title">商店优势</h2>
+                <div class="shop-benefits">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">⚡</div>
+                        <h3>快速交付</h3>
+                        <p>购买后立即获得产品，无需等待，即刻开始使用</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🛡️</div>
+                        <h3>安全可靠</h3>
+                        <p>所有产品都经过严格测试，确保使用安全无风险</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🔧</div>
+                        <h3>持续更新</h3>
+                        <p>产品会随游戏更新而持续维护，确保长期可用性</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">👨‍💻</div>
+                        <h3>专业支持</h3>
+                        <p>提供专业的技术支持和售后服务，解决您的问题</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section>
+                <h2 class="section-title">热门商品</h2>
+                <div class="products-grid">
+                    <div class="product-card" data-url="https://qm.qq.com/q/lpjBlKBv0G">
+                        <img src="https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/63e147fad07ec805/00eb956956fe1d3ce230554003533f16.png" alt="VABE Mod" class="product-image">
+                        <h3 class="product-name">VABE Mod</h3>
+                        <p class="product-description">功能强大的Minecraft作弊模组，提供智能热键和海量功能</p>
+                        <div class="product-price">¥3(1day)</div>
+                        <a href="https://qm.qq.com/q/lpjBlKBv0G" class="buy-button">立即购买</a>
+                    </div>
+
+                    <div class="product-card" data-url="https://qm.qq.com/q/lpjBlKBv0G">
+                        <img src="https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/63e147fad07ec805/00eb956956fe1d3ce230554003533f16.png" alt="VABE Mod" class="product-image">
+                        <h3 class="product-name">VABE Mod</h3>
+                        <p class="product-description">功能强大的Minecraft作弊模组，提供智能热键和海量功能</p>
+                        <div class="product-price">¥10(7day)</div>
+                        <a href="https://qm.qq.com/q/lpjBlKBv0G" class="buy-button">立即购买</a>
+                    </div>
+
+                    <div class="product-card" data-url="https://qm.qq.com/q/lpjBlKBv0G">
+                        <img src="https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/63e147fad07ec805/00eb956956fe1d3ce230554003533f16.png" alt="VABE Mod" class="product-image">
+                        <h3 class="product-name">VABE Mod</h3>
+                        <p class="product-description">功能强大的Minecraft作弊模组，提供智能热键和海量功能</p>
+                        <div class="product-price">¥80(永久)</div>
+                        <a href="https://qm.qq.com/q/lpjBlKBv0G" class="buy-button">立即购买</a>
+                    </div>
+                    
+                    <div class="product-card" data-url="https://awashop.shop?cid=9&mid=18">
+                        <img src="https://awashop.shop/assets/cache/images/202508242321487023023.png" alt="MABY Mod" class="product-image">
+                        <h3 class="product-name">MABY Mod</h3>
+                        <p class="product-description">使用CE脚本打包的EXE制成，更新难度低不易跑路</p>
+                        <div class="product-price">¥35.00</div>
+                        <a href="https://awashop.shop?cid=9&mid=18" class="buy-button">立即购买</a>
+                    </div>
+                    
+                    <div class="product-card" data-url="https://qm.qq.com/q/x6RB9LkYKW">
+                        <img src="https://via.placeholder.com/300x180/1a2639/409CFF?text=高级套餐" alt=" " class="product-image">
+                        <h3 class="product-name">赞助窝</h3>
+                        <p class="product-description">人话就是给我送钱</p>
+                        <div class="product-price">¥5.00</div>
+                        <a href="https://qm.qq.com/q/x6RB9LkYKW" class="buy-button">立即购买</a>
+                    </div>
+                    
+                    <div class="product-card" data-url="https://qm.qq.com/q/x6RB9LkYKW">
+                        <img src="https://via.placeholder.com/300x180/1a2639/409CFF?text=定制服务" alt=" " class="product-image">
+                        <h3 class="product-name">敬请期待</h3>
+                        <p class="product-description">敬请期待</p>
+                        <div class="product-price">¥999.00</div>
+                        <a href="https://qm.qq.com/q/x6RB9LkYKW" class="buy-button">立即购买</a>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="testimonials">
+                <h2>客户评价</h2>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"购买过程非常顺利，客服响应迅速，产品使用起来也很稳定，物超所值！"</p>
+                    <p class="testimonial-author">- Elysia</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"模组功能强大，更新及时，售后服务也很到位，会继续支持！"</p>
+                    <p class="testimonial-author">- LowIQ</p>
                 </div>
             </section>
         </div>
